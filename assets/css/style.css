@@ -4,11 +4,13 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Montserrat', sans-serif;
   background: #111;
   color: #fff;
 }
+
 a {
   text-decoration: none;
   color: inherit;
@@ -27,14 +29,17 @@ header.navbar {
   width: 100%;
   z-index: 1000;
 }
+
 header.navbar img.logo {
   height: 50px;
 }
+
 nav.nav-links {
   display: flex;
   gap: 2rem;
   font-weight: 700;
 }
+
 nav.nav-links a:hover {
   color: #000;
 }
@@ -51,6 +56,7 @@ nav.nav-links a:hover {
   overflow: hidden;
   margin-top: 80px;
 }
+
 .hero img {
   position: absolute;
   top: 0;
@@ -60,19 +66,23 @@ nav.nav-links a:hover {
   object-fit: cover;
   z-index: -1;
 }
+
 .hero-content {
   color: #fff;
   max-width: 800px;
   padding: 0 1rem;
 }
+
 .hero-content h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
+
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
+
 .btn {
   display: inline-block;
   background: #f0c040;
@@ -82,9 +92,11 @@ nav.nav-links a:hover {
   font-weight: 700;
   transition: background 0.3s;
 }
+
 .btn:hover {
   background: #ffc759;
 }
+
 .btn.small {
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
@@ -99,6 +111,7 @@ nav.nav-links a:hover {
   padding: 3rem 1rem;
   background: #111;
 }
+
 .panel {
   background: #1a1a1a;
   padding: 2rem;
@@ -107,14 +120,17 @@ nav.nav-links a:hover {
   max-width: 300px;
   text-align: center;
 }
+
 .panel h2 {
   margin-bottom: 1rem;
 }
+
 .panel ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .panel ul li {
   margin-bottom: 0.5rem;
 }
@@ -127,7 +143,7 @@ footer {
   color: #888;
 }
 
-/* ===== Curtains ===== */
+/* ===== Curtains (Velvet) ===== */
 .curtains {
   position: fixed;
   top: 0;
@@ -136,12 +152,65 @@ footer {
   height: 100vh;
   display: flex;
   z-index: 2000;
+  pointer-events: none;
 }
+
 .curtain {
   flex: 1;
-  background: #800000;
+  position: relative;
+  background: linear-gradient(120deg, #6e0000, #800000 50%, #4b0000 90%);
+  box-shadow: inset -5px 0 30px rgba(0,0,0,0.5), inset 5px 0 20px rgba(255,255,255,0.05);
   transition: transform 1.5s ease;
+  overflow: hidden;
 }
+
+.curtain::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 2px,
+    rgba(0,0,0,0.03) 4px,
+    rgba(0,0,0,0.03) 6px
+  );
+  pointer-events: none;
+}
+
+.curtain::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.04) 2px,
+    rgba(0,0,0,0.05) 4px,
+    rgba(0,0,0,0.05) 6px
+  );
+  opacity: 0.5;
+  animation: velvetShimmer 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Additional “pile” texture for realistic plush velvet */
+.curtain-texture {
+  background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.03) 1px, transparent 2px),
+                    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.02) 1px, transparent 2px);
+  background-size: 20px 20px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+@keyframes velvetShimmer {
+  0% { background-position: 0 0; }
+  25% { background-position: 10px 5px; }
+  50% { background-position: 20px 0; }
+  75% { background-position: 10px -5px; }
+  100% { background-position: 0 0; }
+}
+
 .curtains.hidden .left { transform: translateX(-100%); }
 .curtains.hidden .right { transform: translateX(100%); }
 
