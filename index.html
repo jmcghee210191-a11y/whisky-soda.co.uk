@@ -6,13 +6,63 @@
   <title>Whisky-Soda</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Logo Reveal Styles ===== */
+    .hero-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #000; /* cinematic black background */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2000;
+      overflow: hidden;
+      transition: background 2s ease-out, height 1s ease-out;
+    }
+
+    .hero-logo img {
+      width: 0;
+      opacity: 0;
+      transition: all 2s ease-out;
+    }
+
+    /* Expands logo to 5x during reveal */
+    .hero-logo.reveal img {
+      width: 500%;
+      opacity: 1;
+    }
+
+    /* Shrinks logo to 2x and pins it at top */
+    .hero-logo.header-mode {
+      height: 120px; /* shrink container height */
+      background: transparent;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-logo.header-mode img {
+      width: 200%;
+      opacity: 1;
+      transition: width 1.5s ease-in-out, top 1s ease-in-out;
+    }
+
+    /* Pushes page content down when logo becomes header */
+    body.has-header {
+      padding-top: 140px;
+    }
+  </style>
 </head>
 <body>
+  <!-- ===== Cinematic Logo Reveal ===== -->
+  <div class="hero-logo" id="heroLogo">
+    <img src="assets/Whisky-Soda _Logo.png" alt="Whisky-Soda Logo">
+  </div>
+
   <!-- ===== Navbar ===== -->
   <nav class="navbar">
-    <div class="logo">
-      <img src="assets/Whisky-Soda _Logo.png" alt="Whisky-Soda Logo">
-    </div>
     <div class="nav-links">
       <a href="index.html" aria-current="page">Home</a>
       <a href="about.html">About</a>
@@ -68,9 +118,25 @@
 
   <script>
     const curtains = document.getElementById('curtains');
+    const heroLogo = document.getElementById('heroLogo');
+    const body = document.body;
+
+    // Step 1: Open curtains
     setTimeout(() => {
       curtains.classList.add('hidden');
-    }, 3000); // matches animation duration
+    }, 3000);
+
+    // Step 2: Expand logo to 5x
+    setTimeout(() => {
+      heroLogo.classList.add('reveal');
+    }, 3100);
+
+    // Step 3: Shrink logo to 2x and pin as header
+    setTimeout(() => {
+      heroLogo.classList.remove('reveal');
+      heroLogo.classList.add('header-mode');
+      body.classList.add('has-header');
+    }, 6000);
   </script>
 </body>
 </html>
