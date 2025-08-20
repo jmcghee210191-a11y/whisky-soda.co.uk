@@ -55,7 +55,8 @@
     }
     .hero-logo.header-mode img {
       transform: scale(2);
-      transition: transform 1.5s ease-in-out;
+      opacity: 1;
+      transition: transform 1.5s ease-in-out, opacity 0.5s ease-in-out;
       cursor: pointer;
     }
 
@@ -277,9 +278,13 @@
 
     // Step 3: Shrink logo & show nav
     setTimeout(() => {
-      heroLogo.classList.remove('reveal');
       heroLogo.classList.add('header-mode');
       body.classList.add('has-header');
+
+      // Tiny delay to prevent flicker
+      setTimeout(() => {
+        heroLogo.classList.remove('reveal');
+      }, 50);
     }, 4000);
   </script>
 </body>
