@@ -1,8 +1,9 @@
 body {
-  background: linear-gradient(120deg, #f2e9e4 0%, #c9ada7 100%);
+  background: linear-gradient(135deg, #231942 0%, #5e548e 60%, #f6c453 100%);
   min-height: 100vh;
   margin: 0;
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  /* Add a film-grain overlay image if you want—see below */
 }
 
 header {
