@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Whisky-Soda | Events</title>
+  <title>Whisky-Soda Events</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -75,7 +75,7 @@
       padding: 0 1rem;
     }
     .hero-content h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
     .hero-content p {
@@ -99,24 +99,32 @@
       font-size: 0.9rem;
     }
 
-    /* ===== Events Section ===== */
-    .events {
-      padding: 4rem 1rem;
+    /* ===== Info Panels ===== */
+    .info-panels {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
-      max-width: 1000px;
-      margin: auto;
+      padding: 3rem 1rem;
+      background: #111;
     }
-    .event {
+    .panel {
       background: #1a1a1a;
       padding: 2rem;
       border-radius: 10px;
+      flex: 1 1 250px;
+      max-width: 300px;
+      text-align: center;
     }
-    .event h2 {
+    .panel h2 {
       margin-bottom: 1rem;
     }
-    .event p {
+    .panel ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .panel ul li {
       margin-bottom: 0.5rem;
     }
 
@@ -140,15 +148,8 @@
     }
     .curtain {
       flex: 1;
-      background: linear-gradient(145deg, #800000 0%, #4b0000 100%);
-      box-shadow: inset 0 0 50px #000;
-      background-size: 200% 200%;
-      animation: velvetWave 3s infinite alternate;
+      background: #800000; /* Solid maroon */
       transition: transform 1.5s ease;
-    }
-    @keyframes velvetWave {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
     }
     .curtains.hidden .left { transform: translateX(-100%); }
     .curtains.hidden .right { transform: translateX(100%); }
@@ -188,17 +189,47 @@
 
   <!-- ===== Hero Section ===== -->
   <section class="hero">
-    <img src="assets/events-hero.jpg" alt="Cocktail Event">
+    <img src="assets/pistachiosour.jpg" alt="Pistachio Sour Cocktail">
     <div class="hero-content">
       <h1>Upcoming Events</h1>
-      <p>Join us for immersive screenings paired with bespoke cocktails.</p>
-      <a href="#events" class="btn">See All Events</a>
+      <p>Join us for immersive film screenings paired with curated cocktails.</p>
     </div>
   </section>
 
-  <!-- ===== Events ===== -->
-  <main class="events" id="events">
-    <div class="event">
-      <h2>The Grand Budapest Hotel</h2>
-      <p><strong>Date:</strong> September 2025</p>
-      <p><strong>Description:</strong> Experience our first Whiskey Soda Ltd. event with cocktails inspi
+  <!-- ===== Info Panels ===== -->
+  <main>
+    <section class="info-panels">
+      <div class="panel">
+        <h2>Event Highlights</h2>
+        <p>Experience carefully paired tasting menus, crafted to enhance each film scene.</p>
+      </div>
+      <div class="panel">
+        <h2>Dates & Venues</h2>
+        <ul>
+          <li>September 2025 – The Grand Budapest Hotel</li>
+          <li>October 2025 – Halloween Specials</li>
+          <li>December 2025 – Christmas Screenings</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>Tickets</h2>
+        <p>Book your tickets early for an unforgettable cinematic cocktail experience.</p>
+        <a href="contact.html" class="btn small">Reserve Now</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>&copy; 2025 Whisky Soda Ltd. All rights reserved.</p>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    const curtains = document.getElementById('curtains');
+    setTimeout(() => {
+      curtains.classList.add('hidden');
+    }, 1000);
+  </script>
+</body>
+</html>
