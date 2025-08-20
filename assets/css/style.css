@@ -1,14 +1,14 @@
-/* -------------------------------
-   Global Styles
----------------------------------*/
+/* Global Styles */
 body {
-  background: linear-gradient(120deg, #231942 0%, #5e548e 70%, #f6c453 100%);
   font-family: 'Montserrat', Arial, sans-serif;
   margin: 0;
   min-height: 100vh;
+  background: linear-gradient(120deg, #231942 0%, #5e548e 70%, #f6c453 100%);
+  position: relative;
   overflow-x: hidden;
 }
 
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -17,7 +17,7 @@ body {
   padding: 1rem 2rem;
   color: #fff;
   font-family: 'Caveat', cursive;
-  z-index: 10;
+  z-index: 2;
   position: relative;
 }
 
@@ -29,11 +29,12 @@ body {
   font-family: 'Montserrat', Arial, sans-serif;
   transition: color .2s;
 }
-
-.nav-links a:hover, .nav-links a[aria-current="page"] {
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
   color: #f6c453;
 }
 
+/* Hero Section */
 .hero {
   position: relative;
   z-index: 1;
@@ -60,12 +61,12 @@ body {
   font-family: 'Caveat', cursive;
   margin-bottom: 1rem;
 }
-
 .hero-content p {
   font-size: 1.4rem;
   margin-bottom: 2rem;
 }
 
+/* Buttons */
 .btn {
   background: #f6c453;
   color: #231942;
@@ -76,19 +77,18 @@ body {
   font-weight: bold;
   text-decoration: none;
   box-shadow: 0 2px 8px rgba(246,196,83,0.23);
-  transition: background .2s;
+  transition: background .2s, color .2s;
 }
-
 .btn:hover {
   background: #5e548e;
   color: #fff;
 }
-
 .btn.small {
   padding: 0.5rem 1.5rem;
   font-size: 1rem;
 }
 
+/* Info Panels */
 .info-panels {
   display: flex;
   flex-wrap: wrap;
@@ -96,7 +96,6 @@ body {
   gap: 2rem;
   padding: 3rem 1rem;
 }
-
 .panel {
   background: rgba(255,255,255,0.92);
   border-radius: 1.2rem;
@@ -106,12 +105,12 @@ body {
   flex: 1 1 280px;
   text-align: center;
 }
-
 .panel h2 {
   color: #231942;
   margin-bottom: 1rem;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 1.5rem;
@@ -120,22 +119,22 @@ footer {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   margin-top: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* -------------------------------
-   Ultra-Realistic Velvet Curtains
----------------------------------*/
+/* Curtain Styles */
 .curtains {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: space-between;
-  z-index: 9999; /* topmost layer */
-  overflow: hidden;
+  z-index: 999;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .curtain {
@@ -145,7 +144,7 @@ footer {
   transform-origin: center;
   animation: openCurtain 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   background: 
-    linear-gradient(120deg, #8B0000 0%, #A10000 15%, #B22222 50%, #A10000 85%, #8B0000 100%),
+    linear-gradient(120deg, #4b0000 0%, #800000 20%, #b22222 50%, #800000 80%, #4b0000 100%),
     repeating-linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0.03),
@@ -154,40 +153,12 @@ footer {
       rgba(0, 0, 0, 0.03) 4px
     );
   box-shadow:
-    inset -10px 0 50px rgba(0, 0, 0, 0.5),
-    inset 10px 0 50px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(0,0,0,0.3);
-}
-
-.curtain.left {
-  transform-origin: left;
-  animation-delay: 0s;
-}
-
-.curtain.right {
-  transform-origin: right;
-  animation-delay: 0.2s;
-}
-
-.curtain::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.03),
-    rgba(255,255,255,0.03) 3px,
-    rgba(0,0,0,0.03) 3px,
-    rgba(0,0,0,0.03) 6px
-  );
-  transform: skewY(2deg);
-  opacity: 0.2;
-  pointer-events: none;
+    inset -15px 0 60px rgba(0, 0, 0, 0.5),
+    inset 15px 0 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0,0,0,0.3);
 }
 
 @keyframes openCurtain {
   0% { transform: scaleX(1); }
-  40% { transform: scaleX(0.95) translateX(0); }
   100% { transform: scaleX(0); }
 }
