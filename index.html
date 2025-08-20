@@ -56,28 +56,79 @@
     }
 
     /* Navbar links overlay on logo header */
-    .hero-logo.header-mode .nav-links {
-      display: flex;
-      gap: 2rem;
-      position: absolute;
-      bottom: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-    }
+  <style>
+  /* ===== Logo Reveal & Header Navbar Styles ===== */
+  .hero-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    /* remove overflow hidden so nav isn't clipped */
+    transition: background 2s ease-out, height 1s ease-out;
+  }
 
-    .hero-logo.header-mode .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+  .hero-logo img {
+    width: 0;
+    opacity: 0;
+    transition: all 2s ease-out;
+  }
 
-    .hero-logo.header-mode .nav-links a:hover {
-      color: #f0c040;
-    }
-  </style>
+  /* Expands logo to 5x during reveal */
+  .hero-logo.reveal img {
+    width: 500%;
+    opacity: 1;
+  }
+
+  /* Shrinks logo to 2x and pins it at top */
+  .hero-logo.header-mode {
+    height: 120px;
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-logo.header-mode img {
+    width: 200%;
+    opacity: 1;
+    transition: width 1.5s ease-in-out, top 1s ease-in-out;
+    cursor: pointer;
+  }
+
+  /* Navbar inside header */
+  .hero-logo.header-mode .nav-links {
+    display: flex;
+    gap: 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+  }
+
+  .hero-logo.header-mode .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .hero-logo.header-mode .nav-links a:hover {
+    color: #f0c040;
+  }
+
+  body.has-header {
+    padding-top: 140px;
+  }
+</style>
 </head>
 <body>
   <!-- ===== Cinematic Logo Reveal + Navbar ===== -->
