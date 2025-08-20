@@ -1,78 +1,99 @@
-/* Base Styles */
+/* General Reset & Body */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
-  background-color: #121212;
-  color: #E0E0E0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Center container for all pages */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Navigation Bar */
+nav {
+  background: #111;
+  padding: 1rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
   margin: 0;
   padding: 0;
 }
 
-/* Navigation */
-nav {
-  background-color: #1F1F1F;
-  padding: 1rem;
-  text-align: center;
-}
-
 nav a {
-  color: #E0E0E0;
+  color: #fff;
   text-decoration: none;
-  margin: 0 1rem;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #FF5733;
+  color: #c0392b;
 }
 
 /* Header */
 header {
-  background-color: #1F1F1F;
-  color: #E0E0E0;
-  text-align: center;
-  padding: 2rem;
+  background: #c0392b;
+  color: #fff;
+  padding: 4rem 2rem;
 }
 
 header h1 {
-  font-size: 3rem;
   margin: 0;
+  font-size: 3rem;
 }
 
 header p {
-  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-size: 1.3rem;
 }
 
-/* Main Content */
-main {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
+/* Sections */
+section {
+  margin: 3rem 0;
 }
 
-/* Event Cards */
-.event-card {
-  background-color: #2C2C2C;
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: #c0392b;
+  color: #fff;
+  border: none;
   border-radius: 8px;
-  padding: 1.5rem;
-  margin: 1rem 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
-.event-card h2 {
-  color: #FF5733;
-}
-
-.event-card p {
-  color: #E0E0E0;
+.btn:hover {
+  background: #e74c3c;
 }
 
 /* Footer */
 footer {
-  background-color: #1F1F1F;
-  color: #E0E0E0;
-  text-align: center;
-  padding: 1rem;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+  background: #111;
+  color: #fff;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+/* Event Cards (for events.html) */
+.event-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
