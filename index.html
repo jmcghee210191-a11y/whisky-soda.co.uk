@@ -6,6 +6,57 @@
   <title>Whisky & Soda</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Curtain Styles */
+    .curtains {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: space-between;
+      z-index: 0;
+      pointer-events: none; /* Allows clicks to pass through */
+      overflow: hidden;
+    }
+
+    .curtain {
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, #8B0000 0%, #B22222 50%, #8B0000 100%);
+      box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+      transform-origin: center;
+      animation: openCurtain 3s ease forwards;
+    }
+
+    @keyframes openCurtain {
+      0% { transform: scaleX(1); }
+      100% { transform: scaleX(0); }
+    }
+
+    /* Make hero content appear above curtains */
+    .hero {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1rem;
+      min-height: 100vh;
+      color: #fff;
+      background: #000; /* fallback behind curtains */
+    }
+
+    .hero img {
+      width: 140px;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -17,14 +68,22 @@
       <a href="contact.html">Contact</a>
     </div>
   </nav>
-  <header class="hero">
-  <img src="assets/pistachiosour.jpg" alt="Pistachio Sour Cocktail" style="width:140px; border-radius:1rem; margin-bottom:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.15);">
-  <div class="hero-content">
-    <h1>Immersive Cinema Meets Curated Cocktails</h1>
-    <p>Experience films paired with bespoke tasting menus, designed to elevate every scene.</p>
-    <a href="events.html" class="btn">Explore Events</a>
+
+  <!-- Curtain Effect -->
+  <div class="curtains">
+    <div class="curtain"></div>
+    <div class="curtain"></div>
   </div>
-</header>
+
+  <header class="hero">
+    <img src="assets/pistachiosour.jpg" alt="Pistachio Sour Cocktail">
+    <div class="hero-content">
+      <h1>Immersive Cinema Meets Curated Cocktails</h1>
+      <p>Experience films paired with bespoke tasting menus, designed to elevate every scene.</p>
+      <a href="events.html" class="btn">Explore Events</a>
+    </div>
+  </header>
+
   <main>
     <section class="info-panels">
       <div class="panel">
@@ -47,6 +106,7 @@
       </div>
     </section>
   </main>
+
   <footer>
     <p>&copy; 2025 Whisky Soda Ltd. All rights reserved.</p>
   </footer>
