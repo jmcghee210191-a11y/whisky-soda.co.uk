@@ -13,13 +13,13 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100vh;
+      height: 100%; /* full page */
       display: flex;
       justify-content: space-between;
       z-index: 9999; /* in front of everything */
-      pointer-events: none; /* allow interaction after animation */
       overflow: hidden;
       background: transparent;
+      pointer-events: none; /* let clicks through after animation */
     }
 
     .curtain {
@@ -31,7 +31,6 @@
       animation: openCurtain 3s ease forwards;
     }
 
-    /* Left and right curtain origin */
     .curtain.left { transform-origin: left; }
     .curtain.right { transform-origin: right; }
 
@@ -52,7 +51,7 @@
       padding: 4rem 1rem;
       min-height: 100vh;
       color: #fff;
-      background: #000; /* fallback behind curtains */
+      background: #000;
     }
 
     .hero img {
@@ -60,6 +59,11 @@
       border-radius: 1rem;
       margin-bottom: 1rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    /* ===== Optional: Remove curtains from DOM after animation ===== */
+    .curtains.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -84,12 +88,6 @@
       <a href="events.html" class="btn">Explore Events</a>
     </div>
   </header>
-
-  <!-- ===== Curtain Effect (In Front) ===== -->
-  <div class="curtains">
-    <div class="curtain left"></div>
-    <div class="curtain right"></div>
-  </div>
 
   <!-- ===== Main Content ===== -->
   <main>
@@ -119,5 +117,19 @@
   <footer>
     <p>&copy; 2025 Whisky Soda Ltd. All rights reserved.</p>
   </footer>
+
+  <!-- ===== Curtain Effect (In Front of Everything) ===== -->
+  <div class="curtains" id="curtains">
+    <div class="curtain left"></div>
+    <div class="curtain right"></div>
+  </div>
+
+  <script>
+    // Optional: remove curtains from DOM after animation
+    const curtains = document.getElementById('curtains');
+    setTimeout(() => {
+      curtains.classList.add('hidden');
+    }, 3000); // matches animation duration
+  </script>
 </body>
 </html>
