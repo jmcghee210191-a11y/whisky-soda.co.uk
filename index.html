@@ -5,7 +5,145 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Whisky & Soda</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Google Fonts for stylish headings -->
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(120deg, #231942 0%, #5e548e 70%, #f6c453 100%);
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #231942;
+      padding: 1rem 2rem;
+      color: #fff;
+      font-family: 'Caveat', cursive;
+      font-size: 1.8rem;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      font-family: 'Montserrat', Arial, sans-serif;
+      transition: color .2s;
+      font-size: 1.1rem;
+    }
+    .nav-links a:hover, .nav-links a[aria-current="page"] {
+      color: #f6c453;
+    }
+    .hero {
+      position: relative;
+      background: linear-gradient(120deg, #231942bb 0%, #5e548ebb 100%);
+      color: #fff;
+      text-align: center;
+      padding: 4.5rem 2rem 2rem 2rem;
+      overflow: hidden;
+    }
+    .hero-image {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+      z-index: 0;
+      filter: blur(2px);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+      margin: auto;
+    }
+    .hero-content h1 {
+      font-size: 2.7rem;
+      font-family: 'Caveat', cursive;
+      margin-bottom: 0.8rem;
+      letter-spacing: 1px;
+      text-shadow: 0 4px 24px #000a;
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 2px 8px #0008;
+    }
+    .btn {
+      background: #f6c453;
+      color: #231942;
+      border: none;
+      border-radius: 2rem;
+      padding: 1rem 2.2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(246,196,83,0.23);
+      transition: background .2s, color .2s;
+      letter-spacing: 2px;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #5e548e;
+      color: #fff;
+    }
+    .info-panels {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 1rem;
+    }
+    .panel {
+      background: rgba(255,255,255,0.92);
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 12px rgba(35,25,66,0.08);
+      padding: 2rem 1.5rem;
+      max-width: 350px;
+      flex: 1 1 280px;
+      text-align: center;
+    }
+    .panel h2 {
+      color: #231942;
+      margin-bottom: 1rem;
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+    }
+    .panel ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+    }
+    .panel ul li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #5e548e;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #231942;
+      color: #fff;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      margin-top: 2rem;
+      font-size: 1rem;
+    }
+    @media (max-width: 900px) {
+      .info-panels {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 2rem 0.5rem;
+      }
+      .navbar {
+        flex-direction: column;
+        font-size: 1.4rem;
+        padding: 1rem 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -18,25 +156,28 @@
     </div>
   </nav>
   <header class="hero">
+    <img src="assets/pistachiosour.jpg" alt="Pistachio Sour Cocktail" class="hero-image">
     <div class="hero-content">
       <h1>Immersive Cinema Meets Curated Cocktails</h1>
-      <p>Experience films paired with bespoke tasting menus, designed to elevate every scene.</p>
+      <p>Experience films paired with bespoke tasting menus, designed to elevate every scene.  
+      Join us for unforgettable nights where every drink is inspired by the magic of the movies.</p>
       <a href="events.html" class="btn">Explore Events</a>
     </div>
   </header>
   <main>
     <section class="info-panels">
       <div class="panel">
-        <h2>Upcoming Events</h2>
-        <p>Join us for themed screenings with drinks crafted to match the movie’s mood.</p>
+        <h2>🎬 Upcoming Events</h2>
+        <p>Join us for themed screenings with drinks crafted to match each movie’s mood.</p>
         <a href="events.html" class="btn small">See Events</a>
       </div>
       <div class="panel">
-        <h2>Featured Bottles</h2>
+        <h2>🍸 Featured Bottles</h2>
         <ul>
           <li>Single Malt Scotch</li>
           <li>Japanese Whisky</li>
           <li>Irish Whiskey</li>
+          <li>Signature Cocktails</li>
         </ul>
       </div>
       <div class="panel">
@@ -47,7 +188,7 @@
     </section>
   </main>
   <footer>
-    <p>&copy; 2025 Whisky Soda Ltd. All rights reserved.</p>
+    <p>&copy; 2025 Whisky Soda Ltd. All rights reserved. 🍸🎬</p>
   </footer>
 </body>
 </html>
