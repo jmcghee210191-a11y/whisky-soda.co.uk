@@ -1,4 +1,4 @@
-/* Reset some defaults */
+/* Reset defaults */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,13 +7,14 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background: #fafafa;
+  background: #fefefe;
   color: #333;
   line-height: 1.6;
 }
 
+/* Navigation */
 nav {
-  background: #f4f4f4;
+  background: #2c3e50;
   padding: 1rem 2rem;
 }
 
@@ -25,31 +26,35 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #c0392b;
+  color: #ecf0f1;
   font-weight: bold;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #e74c3c;
 }
 
+/* Header */
 header {
-  background: #111;
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
   color: #fff;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
   text-align: center;
+  border-bottom: 4px solid #111;
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 0.5rem;
 }
 
 header p {
-  font-size: 1.2rem;
-  color: #ddd;
+  font-size: 1.3rem;
+  color: #f1c40f;
 }
 
+/* Main content */
 main {
   max-width: 900px;
   margin: 2rem auto;
@@ -58,24 +63,31 @@ main {
 
 section {
   background: #fff;
-  padding: 1.5rem 2rem;
+  padding: 2rem;
   margin-bottom: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 section h2 {
-  margin-bottom: 1rem;
   color: #c0392b;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 section p {
   margin-bottom: 1rem;
+  font-size: 1.1rem;
 }
 
 section a {
-  color: #c0392b;
+  color: #e74c3c;
   text-decoration: none;
 }
 
@@ -83,10 +95,12 @@ section a:hover {
   text-decoration: underline;
 }
 
+/* Footer */
 footer {
-  background: #111;
-  color: #fff;
+  background: #2c3e50;
+  color: #ecf0f1;
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 2rem 1rem;
   margin-top: 2rem;
+  border-top: 4px solid #c0392b;
 }
