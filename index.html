@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* ===== Logo Reveal Styles ===== */
+    /* ===== Logo Reveal & Header Navbar Styles ===== */
     .hero-logo {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #000; /* cinematic black background */
+      background: #000;
       position: fixed;
       top: 0;
       left: 0;
@@ -37,7 +37,7 @@
 
     /* Shrinks logo to 2x and pins it at top */
     .hero-logo.header-mode {
-      height: 120px; /* shrink container height */
+      height: 120px;
       background: transparent;
       justify-content: center;
       align-items: center;
@@ -47,29 +47,49 @@
       width: 200%;
       opacity: 1;
       transition: width 1.5s ease-in-out, top 1s ease-in-out;
+      cursor: pointer;
     }
 
     /* Pushes page content down when logo becomes header */
     body.has-header {
       padding-top: 140px;
     }
+
+    /* Navbar links overlay on logo header */
+    .hero-logo.header-mode .nav-links {
+      display: flex;
+      gap: 2rem;
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .hero-logo.header-mode .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .hero-logo.header-mode .nav-links a:hover {
+      color: #f0c040;
+    }
   </style>
 </head>
 <body>
-  <!-- ===== Cinematic Logo Reveal ===== -->
+  <!-- ===== Cinematic Logo Reveal + Navbar ===== -->
   <div class="hero-logo" id="heroLogo">
     <img src="assets/Whisky-Soda _Logo.png" alt="Whisky-Soda Logo">
-  </div>
-
-  <!-- ===== Navbar ===== -->
-  <nav class="navbar">
-    <div class="nav-links">
+    <nav class="nav-links">
       <a href="index.html" aria-current="page">Home</a>
       <a href="about.html">About</a>
       <a href="events.html">Events</a>
       <a href="contact.html">Contact</a>
-    </div>
-  </nav>
+    </nav>
+  </div>
 
   <!-- ===== Hero Section ===== -->
   <header class="hero">
@@ -131,7 +151,7 @@
       heroLogo.classList.add('reveal');
     }, 3100);
 
-    // Step 3: Shrink logo to 2x and pin as header
+    // Step 3: Shrink logo to 2x and pin as header + show nav
     setTimeout(() => {
       heroLogo.classList.remove('reveal');
       heroLogo.classList.add('header-mode');
