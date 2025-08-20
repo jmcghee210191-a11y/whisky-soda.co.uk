@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Whiskey Soda Ltd. | Events</title>
+  <title>Events — Whiskey Soda Ltd.</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,6 +13,21 @@
       color: #333;
       line-height: 1.6;
     }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 10px;
+      background: #f4f4f4;
+      margin: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #c0392b;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
     header {
       background: #111;
       color: #fff;
@@ -21,38 +36,19 @@
     }
     header h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
     }
     main {
       padding: 2rem;
-      max-width: 900px;
+      max-width: 800px;
       margin: auto;
     }
     section {
       margin-bottom: 2rem;
-    }
-    .event {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    .event h3 {
-      margin-top: 0;
     }
     footer {
       background: #111;
@@ -63,22 +59,46 @@
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main header -->
   <header>
-    <h1>Whiskey Soda Ltd. | Events</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="events.html">Events</a>
-    </nav>
+    <h1>Whiskey Soda Ltd.</h1>
+    <p>Cinema & Cocktails — Reimagined</p>
   </header>
 
   <main>
-    <section>
+    <section id="upcoming-events">
       <h2>Upcoming Events</h2>
+      <p>
+        We host immersive film screenings paired with bespoke cocktail menus. 
+        Every event is a unique experience designed to engage all the senses.
+      </p>
+      <ul>
+        <li><strong>Grand Budapest Hotel Screening:</strong> September 2025 — Bespoke cocktails inspired by key scenes.</li>
+        <li><strong>Halloween Horror Night:</strong> October 2025 — Spooky films paired with themed drinks.</li>
+        <li><strong>Christmas Movie Series:</strong> December 2025 — Classic holiday films with festive cocktails.</li>
+      </ul>
+    </section>
 
-      <div class="event">
-        <h3>🎬 The Grand Budapest Hotel Experience</h3>
-        <p><strong>Date:</strong> September 2025<br>
-        <strong>Location:</strong> TBC (Glasgow)</p>
-        <p>
-          Join us for our launch event! A scre
+    <section id="book">
+      <h2>Booking & Enquiries</h2>
+      <p>
+        To enquire about attending an event or hosting a private screening, 
+        please contact us at <a href="mailto:jackmcghee@whisky-soda.co.uk">jackmcghee@whisky-soda.co.uk</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Whiskey Soda Ltd. All rights reserved.</p>
+  </footer>
+</body>
+</html>
