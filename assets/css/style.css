@@ -1,33 +1,18 @@
-:root {
-  --background: linear-gradient(120deg, #f2e9e4 0%, #c9ada7 100%);
-  --card-bg: #fff;
-  --primary: #222;
-  --accent: #7B3F00;
-  --secondary: #E1C699;
-  --radius: 1rem;
-  --shadow: 0 4px 24px rgba(123, 63, 0, 0.10);
-  --font-main: 'Segoe UI', 'Roboto', Arial, sans-serif;
-}
-
 body {
-  background: var(--background);
-  color: var(--primary);
-  font-family: var(--font-main);
-  margin: 0;
-  padding: 0;
+  background: linear-gradient(120deg, #f2e9e4 0%, #c9ada7 100%);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
 }
 
 header {
-  background: var(--accent);
+  background: #7B3F00;
   color: #fff;
   text-align: center;
   padding: 2rem 0 1rem 0;
-  border-bottom-left-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(123, 63, 0, 0.10);
 }
 
 nav {
@@ -42,55 +27,47 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  border-radius: var(--radius);
+  border-radius: 1rem;
   transition: background 0.2s;
 }
-nav a:hover {
-  background: var(--secondary);
-  color: var(--accent);
+nav a:hover, nav a[aria-current="page"] {
+  background: #E1C699;
+  color: #7B3F00;
 }
 
 .container {
   max-width: 900px;
   margin: 3rem auto 2rem auto;
   padding: 2rem;
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(123, 63, 0, 0.10);
   text-align: center;
 }
 
 .card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(123, 63, 0, 0.10);
   padding: 1.5rem;
   margin-bottom: 2rem;
   text-align: center;
 }
 
 h1, h2, h3 {
-  font-family: var(--font-main);
-  color: var(--accent);
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  color: #7B3F00;
   margin-top: 0;
 }
 
-button, .btn {
-  background: var(--accent);
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #7B3F00;
   color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius);
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: var(--shadow);
-  transition: background 0.2s, transform 0.2s;
-  margin-top: 1rem;
-}
-button:hover, .btn:hover {
-  background: var(--secondary);
-  color: var(--accent);
-  transform: scale(1.05);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  margin-top: 3rem;
 }
 
 @media (max-width: 700px) {
