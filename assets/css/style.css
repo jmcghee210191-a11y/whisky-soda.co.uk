@@ -28,7 +28,7 @@ body {
 }
 
 .hero {
-  background: url('your-cinema-cocktail-image.jpg') center/cover no-repeat, linear-gradient(120deg, #231942bb 0%, #5e548ebb 100%);
+  background: url('assets/pistachiosour.jpg') center/cover no-repeat, linear-gradient(120deg, #231942bb 0%, #5e548ebb 100%);
   color: #fff;
   text-align: center;
   padding: 5rem 2rem 3rem 2rem;
