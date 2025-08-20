@@ -6,13 +6,25 @@
   <title>Whisky-Soda</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Center the logo and scale it up */
+    .hero-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #000; /* optional: keep black background */
+    }
+    .hero-logo img {
+      width: 1000%; /* 10x larger than default */
+      max-width: none; /* remove any default constraints */
+      height: auto;
+    }
+  </style>
 </head>
 <body>
   <!-- ===== Navbar ===== -->
   <nav class="navbar">
-    <div class="logo">
-      <img src="assets/Whisky-Soda _Logo.png" alt="Whisky-Soda Logo">
-    </div>
     <div class="nav-links">
       <a href="index.html" aria-current="page">Home</a>
       <a href="about.html">About</a>
@@ -21,15 +33,51 @@
     </div>
   </nav>
 
-  <!-- ===== Hero Section ===== -->
-  <header class="hero">
-    <img src="assets/pistachiosour.jpg" alt="Pistachio Sour Cocktail">
-    <div class="hero-content">
-      <h1>Immersive Cinema Meets Curated Cocktails</h1>
-      <p>Experience films paired with bespoke tasting menus, designed to elevate every scene.</p>
-      <a href="events.html" class="btn">Explore Events</a>
-    </div>
-  </header>
+<!-- ===== Hero Logo Section ===== -->
+<header class="hero-logo">
+  <img src="assets/Whisky-Soda_Logo.png" alt="Whisky-Soda Logo" class="logo-animate">
+</header>
+
+<style>
+.hero-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+/* Animate the logo like a cinematic reveal */
+.logo-animate {
+  width: 0;
+  opacity: 0;
+  transition: all 3s ease-out;
+}
+
+/* Class to trigger the animation */
+.logo-animate.show {
+  width: 1000%; /* 10x larger */
+  max-width: none;
+  opacity: 1;
+}
+</style>
+
+<script>
+  // Wait for the curtains to hide, then animate logo
+  const curtains = document.getElementById('curtains');
+  const logo = document.querySelector('.logo-animate');
+
+  setTimeout(() => {
+    curtains.classList.add('hidden');
+    
+    // Trigger logo animation after curtains
+    setTimeout(() => {
+      logo.classList.add('show');
+    }, 100); // slight delay for smooth transition
+  }, 3000); // match your curtain animation
+</script>
+
 
   <!-- ===== Main Content ===== -->
   <main>
