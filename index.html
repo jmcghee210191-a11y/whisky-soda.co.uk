@@ -176,12 +176,14 @@
       width: 100%;
       height: 100vh;
       display: flex;
-      z-index: 2500;
+      z-index: 3000; /* above hero-logo */
+      pointer-events: none; /* allow clicks through curtains */
     }
     .curtain {
       flex: 1;
-      background: #000;
-      transition: transform 1s ease;
+      background: #8B0000; /* dark red velvet look */
+      box-shadow: inset 0 0 50px #000;
+      transition: transform 1.5s ease;
     }
     .curtains.hidden .left {
       transform: translateX(-100%);
@@ -266,22 +268,22 @@
     const heroLogo = document.getElementById('heroLogo');
     const body = document.body;
 
-    // Step 1: Open curtains
+    // Step 1: Open curtains after 1s
     setTimeout(() => {
       curtains.classList.add('hidden');
     }, 1000);
 
-    // Step 2: Expand logo
+    // Step 2: Expand logo after 1.1s
     setTimeout(() => {
       heroLogo.classList.add('reveal');
     }, 1100);
 
-    // Step 3: Shrink logo & show nav
+    // Step 3: Shrink logo & show nav after 4s
     setTimeout(() => {
       heroLogo.classList.add('header-mode');
       body.classList.add('has-header');
 
-      // Tiny delay to prevent flicker
+      // Remove temporary reveal class to prevent flicker
       setTimeout(() => {
         heroLogo.classList.remove('reveal');
       }, 50);
