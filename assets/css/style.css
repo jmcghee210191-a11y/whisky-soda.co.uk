@@ -1,144 +1,5 @@
 /* -------------------------------
-   Global Styles
----------------------------------*/
-body {
-  margin: 0;
-  font-family: 'Montserrat', Arial, sans-serif;
-  min-height: 100vh;
-  background: linear-gradient(120deg, #231942 0%, #5e548e 70%, #f6c453 100%);
-  overflow-x: hidden;
-}
-
-/* -------------------------------
-   Navbar
----------------------------------*/
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #231942;
-  padding: 1rem 2rem;
-  color: #fff;
-  font-family: 'Caveat', cursive;
-  z-index: 2;
-  position: relative;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 1rem;
-  font-weight: bold;
-  font-family: 'Montserrat', Arial, sans-serif;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover,
-.nav-links a[aria-current="page"] {
-  color: #f6c453;
-}
-
-/* -------------------------------
-   Hero Section
----------------------------------*/
-.hero {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 4rem 1rem;
-  min-height: 100vh;
-  color: #fff;
-  background: url('assets/pistachiosour.jpg') center/cover no-repeat;
-}
-
-.hero img {
-  width: 140px;
-  border-radius: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.hero-content h1 {
-  font-size: 2.6rem;
-  font-family: 'Caveat', cursive;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.4rem;
-  margin-bottom: 2rem;
-}
-
-/* -------------------------------
-   Buttons
----------------------------------*/
-.btn {
-  background: #f6c453;
-  color: #231942;
-  border: none;
-  border-radius: 2rem;
-  padding: 1rem 2.5rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(246, 196, 83, 0.23);
-  transition: background 0.2s;
-}
-
-.btn:hover {
-  background: #5e548e;
-  color: #fff;
-}
-
-.btn.small {
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-}
-
-/* -------------------------------
-   Info Panels
----------------------------------*/
-.info-panels {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 3rem 1rem;
-}
-
-.panel {
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 1.2rem;
-  box-shadow: 0 2px 12px rgba(35, 25, 66, 0.08);
-  padding: 2rem 1.5rem;
-  max-width: 350px;
-  flex: 1 1 280px;
-  text-align: center;
-}
-
-.panel h2 {
-  color: #231942;
-  margin-bottom: 1rem;
-}
-
-/* -------------------------------
-   Footer
----------------------------------*/
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  background: #231942;
-  color: #fff;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  margin-top: 2rem;
-}
-
-/* -------------------------------
-   Velvet Curtains
+   Velvet Curtains (Realistic)
 ---------------------------------*/
 .curtains {
   position: fixed;
@@ -156,16 +17,48 @@ footer {
 .curtain {
   width: 50%;
   height: 100%;
-  background-color: #8B0000; /* deep velvet red */
-  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    120deg,
+    #8B0000 0%,
+    #A00000 20%,
+    #B22222 50%,
+    #A00000 80%,
+    #8B0000 100%
+  );
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6);
+  position: relative;
   transform-origin: center;
   animation: openCurtain 3s ease forwards;
 }
 
-.curtain.left { transform-origin: left; }
-.curtain.right { transform-origin: right; }
+.curtain::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.curtain.left {
+  transform-origin: left;
+  animation-delay: 0s;
+}
+
+.curtain.right {
+  transform-origin: right;
+  animation-delay: 0.2s;
+}
 
 @keyframes openCurtain {
   0% { transform: scaleX(1); }
+  50% { transform: scaleX(0.95) translateX(0); }
   100% { transform: scaleX(0); }
 }
