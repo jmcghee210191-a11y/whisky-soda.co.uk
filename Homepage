@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Whisky Soda - Classic Films & Immersive Cocktails</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 60%, #8e5c2c 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: rgba(0,0,0,0.7);
+      padding: 2rem 2.5rem;
+      border-radius: 16px;
+      max-width: 480px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(30,20,12,0.25);
+    }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+    .tagline {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #ffda9e;
+      font-style: italic;
+    }
+    p {
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .cta {
+      margin-bottom: 1.5rem;
+    }
+    .cta input[type="email"] {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 8px;
+      width: 65%;
+      margin-right: 0.5rem;
+    }
+    .cta button {
+      background: #8e5c2c;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .socials {
+      margin-bottom: 0.5rem;
+    }
+    .socials a {
+      color: #ffda9e;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-size: 1.25rem;
+    }
+    .footer {
+      font-size: 0.9rem;
+      color: #ffda9e;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Whisky Soda</h1>
+    <div class="tagline">Classic Films. Immersive Cocktails.</div>
+    <p>
+      Step into a world where every sip deepens the story.<br>
+      Join us for screenings of iconic films, paired with cocktails crafted to immerse you in the plot.<br>
+      A sensory journey—each drink inspired by the movie's twists and turns.
+    </p>
+    <div class="cta">
+      <form>
+        <input type="email" placeholder="Join our mailing list" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+    <div class="socials">
+      <!-- Replace # with your actual links -->
+      <a href="#" title="Instagram">Instagram</a>
+      <a href="#" title="Email">Email</a>
+    </div>
+    <div class="footer">
+      &copy; 2025 Whisky Soda
+    </div>
+  </div>
+</body>
+</html>
