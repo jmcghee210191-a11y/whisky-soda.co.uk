@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Whiskey Soda Ltd.</title>
+  <title>Events — Whiskey Soda Ltd.</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,31 +18,78 @@
 
   <!-- Main header -->
   <header>
-    <h1>Whiskey Soda Ltd.</h1>
-    <p>Cinema & Cocktails — Reimagined</p>
+    <h1>Whiskey Soda Ltd. Events</h1>
+    <p>Experience Films & Cocktails Like Never Before</p>
   </header>
 
   <main>
-    <section id="about">
-      <h2>About Us</h2>
-      <p>
-        Whiskey Soda Ltd. is a creative events company that combines cinema and cocktails. 
-        We design immersive screenings where each film is paired with a bespoke tasting menu 
-        of drinks inspired by key moments on screen.
-      </p>
-      <p>
-        Our mission is simple: to transport audiences into the world of cinema, one sip at a time.
-      </p>
-    </section>
+    <section id="upcoming-events">
+      <h2>Upcoming Events</h2>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:jackmcghee@whisky-soda.co.uk">jackmcghee@whisky-soda.co.uk</a></p>
+      <!-- Event Card 1 -->
+      <div class="event-card">
+        <h3>The Grand Budapest Hotel Screening</h3>
+        <p><strong>Date:</strong> September 12, 2025</p>
+        <p><strong>Location:</strong> Everyman Theatre, London</p>
+        <p>
+          Immerse yourself in Wes Anderson's iconic world with a themed cocktail tasting menu.
+          Enjoy bespoke drinks inspired by key scenes in the film, delivered straight to your seat.
+        </p>
+      </div>
+
+      <!-- Event Card 2 -->
+      <div class="event-card">
+        <h3>Halloween Horror Night</h3>
+        <p><strong>Date:</strong> October 31, 2025</p>
+        <p><strong>Location:</strong> TBD</p>
+        <p>
+          A night of spine-chilling cinema paired with dark, atmospheric cocktails. 
+          Perfect for fans of horror films and immersive experiences.
+        </p>
+      </div>
+
+      <!-- Event Card 3 -->
+      <div class="event-card">
+        <h3>Christmas Movie Extravaganza</h3>
+        <p><strong>Date:</strong> December 18–24, 2025</p>
+        <p><strong>Location:</strong> TBD</p>
+        <p>
+          Celebrate the holidays with classic Christmas films and festive cocktails. 
+          Each screening features a unique, sensory pairing to make your season magical.
+        </p>
+      </div>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Whiskey Soda Ltd. All rights reserved.</p>
   </footer>
+
+  <style>
+    /* Event cards styling */
+    .event-card {
+      background: #fff;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .event-card h3 {
+      color: #c0392b;
+      margin-bottom: 0.5rem;
+    }
+
+    .event-card p {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+  </style>
 </body>
 </html>
