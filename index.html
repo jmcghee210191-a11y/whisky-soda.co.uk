@@ -7,38 +7,43 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Curtain Styles */
+    /* ===== Curtain Styles ===== */
     .curtains {
-      position: absolute;
+      position: fixed; /* stay in front during scroll */
       top: 0;
       left: 0;
       width: 100%;
       height: 100vh;
       display: flex;
       justify-content: space-between;
-      z-index: 0;
-      pointer-events: none; /* Allows clicks to pass through */
+      z-index: 9999; /* in front of everything */
+      pointer-events: none; /* allow interaction after animation */
       overflow: hidden;
+      background: transparent;
     }
 
     .curtain {
       width: 50%;
       height: 100%;
-      background: linear-gradient(to right, #8B0000 0%, #B22222 50%, #8B0000 100%);
+      background: linear-gradient(to bottom, #8B0000 0%, #B22222 50%, #8B0000 100%);
       box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
       transform-origin: center;
       animation: openCurtain 3s ease forwards;
     }
+
+    /* Left and right curtain origin */
+    .curtain.left { transform-origin: left; }
+    .curtain.right { transform-origin: right; }
 
     @keyframes openCurtain {
       0% { transform: scaleX(1); }
       100% { transform: scaleX(0); }
     }
 
-    /* Make hero content appear above curtains */
+    /* ===== Hero Section ===== */
     .hero {
       position: relative;
-      z-index: 1;
+      z-index: 1; /* behind curtains */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -59,6 +64,7 @@
   </style>
 </head>
 <body>
+  <!-- ===== Navbar ===== -->
   <nav class="navbar">
     <div class="logo">🍸 Whisky & Soda 🎬</div>
     <div class="nav-links">
@@ -69,12 +75,7 @@
     </div>
   </nav>
 
-  <!-- Curtain Effect -->
-  <div class="curtains">
-    <div class="curtain"></div>
-    <div class="curtain"></div>
-  </div>
-
+  <!-- ===== Hero Section ===== -->
   <header class="hero">
     <img src="assets/pistachiosour.jpg" alt="Pistachio Sour Cocktail">
     <div class="hero-content">
@@ -84,6 +85,13 @@
     </div>
   </header>
 
+  <!-- ===== Curtain Effect (In Front) ===== -->
+  <div class="curtains">
+    <div class="curtain left"></div>
+    <div class="curtain right"></div>
+  </div>
+
+  <!-- ===== Main Content ===== -->
   <main>
     <section class="info-panels">
       <div class="panel">
@@ -107,6 +115,7 @@
     </section>
   </main>
 
+  <!-- ===== Footer ===== -->
   <footer>
     <p>&copy; 2025 Whisky Soda Ltd. All rights reserved.</p>
   </footer>
