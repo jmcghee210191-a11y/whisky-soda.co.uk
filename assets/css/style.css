@@ -91,7 +91,8 @@ a {
   padding: 2rem 1rem;
   min-height: 100vh;
   background: linear-gradient(to bottom, #000 0%, #111 100%);
-  animation: fadeIn 1.5s ease forwards;
+  animation: fadeIn 1.5s 3s ease forwards; /* start after 3s when curtains finish */
+
 }
 
 .hero img {
