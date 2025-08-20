@@ -2,32 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Whisky & Soda</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <h1>Whisky & Soda</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+    <nav aria-label="Main Navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
-  <div class="container">
-    <div class="card">
+  <main class="container">
+    <section class="card">
       <h2>Welcome to Whisky & Soda</h2>
-      <p>Discover our exclusive collection and enjoy a refined tasting experience.</p>
-      <button>Explore Now</button>
-    </div>
-    <div class="card">
+      <p>
+        Whiskey Soda Ltd. is a creative events company that combines cinema and cocktails. 
+        We design immersive screenings where each film is paired with a bespoke tasting menu of drinks inspired by key moments on screen.
+      </p>
+      <a href="events.html" class="btn">Explore Events</a>
+    </section>
+    <section class="card">
       <h3>Featured Bottles</h3>
       <ul>
         <li>Single Malt Scotch</li>
         <li>Japanese Whisky</li>
         <li>Irish Whiskey</li>
       </ul>
-    </div>
-  </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Whisky Soda Ltd. All rights reserved.</p>
+  </footer>
 </body>
 </html>
