@@ -1,11 +1,17 @@
-/* ===== General Styles ===== */
+/* -------------------------------
+   Global Styles
+---------------------------------*/
 body {
-  background: linear-gradient(120deg, #231942 0%, #5e548e 70%, #f6c453 100%);
-  font-family: 'Montserrat', Arial, sans-serif;
   margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
   min-height: 100vh;
+  background: linear-gradient(120deg, #231942 0%, #5e548e 70%, #f6c453 100%);
+  overflow-x: hidden;
 }
 
+/* -------------------------------
+   Navbar
+---------------------------------*/
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -14,6 +20,8 @@ body {
   padding: 1rem 2rem;
   color: #fff;
   font-family: 'Caveat', cursive;
+  z-index: 2;
+  position: relative;
 }
 
 .nav-links a {
@@ -22,7 +30,7 @@ body {
   margin: 0 1rem;
   font-weight: bold;
   font-family: 'Montserrat', Arial, sans-serif;
-  transition: color .2s;
+  transition: color 0.2s;
 }
 
 .nav-links a:hover,
@@ -30,14 +38,27 @@ body {
   color: #f6c453;
 }
 
-/* ===== Hero Section ===== */
+/* -------------------------------
+   Hero Section
+---------------------------------*/
 .hero {
-  position: relative; /* needed for curtains */
-  background: linear-gradient(120deg, #231942bb 0%, #5e548ebb 100%);
-  color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 5rem 2rem 3rem 2rem;
-  overflow: hidden;
+  padding: 4rem 1rem;
+  min-height: 100vh;
+  color: #fff;
+  background: url('assets/pistachiosour.jpg') center/cover no-repeat;
+}
+
+.hero img {
+  width: 140px;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .hero-content h1 {
@@ -51,6 +72,9 @@ body {
   margin-bottom: 2rem;
 }
 
+/* -------------------------------
+   Buttons
+---------------------------------*/
 .btn {
   background: #f6c453;
   color: #231942;
@@ -60,8 +84,8 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(246,196,83,0.23);
-  transition: background .2s;
+  box-shadow: 0 2px 8px rgba(246, 196, 83, 0.23);
+  transition: background 0.2s;
 }
 
 .btn:hover {
@@ -74,7 +98,9 @@ body {
   font-size: 1rem;
 }
 
-/* ===== Info Panels ===== */
+/* -------------------------------
+   Info Panels
+---------------------------------*/
 .info-panels {
   display: flex;
   flex-wrap: wrap;
@@ -84,9 +110,9 @@ body {
 }
 
 .panel {
-  background: rgba(255,255,255,0.92);
+  background: rgba(255, 255, 255, 0.92);
   border-radius: 1.2rem;
-  box-shadow: 0 2px 12px rgba(35,25,66,0.08);
+  box-shadow: 0 2px 12px rgba(35, 25, 66, 0.08);
   padding: 2rem 1.5rem;
   max-width: 350px;
   flex: 1 1 280px;
@@ -98,7 +124,9 @@ body {
   margin-bottom: 1rem;
 }
 
-/* ===== Footer ===== */
+/* -------------------------------
+   Footer
+---------------------------------*/
 footer {
   text-align: center;
   padding: 1.5rem;
@@ -109,36 +137,35 @@ footer {
   margin-top: 2rem;
 }
 
-/* ===== Velvet Curtains ===== */
+/* -------------------------------
+   Velvet Curtains
+---------------------------------*/
 .curtains {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
-  z-index: 0; /* behind hero content */
-  pointer-events: none; /* clicks pass through */
+  z-index: 9999; /* topmost */
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .curtain {
   width: 50%;
   height: 100%;
-  background: linear-gradient(to bottom, #800000 0%, #400000 100%);
-  box-shadow: inset -10px 0 15px rgba(0,0,0,0.5);
-  transform-origin: left;
-  animation: curtainOpen 2s ease forwards;
+  background-color: #8B0000; /* deep velvet red */
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  transform-origin: center;
+  animation: openCurtain 3s ease forwards;
 }
 
-/* Right curtain */
-.curtain:last-child {
-  transform-origin: right;
-  box-shadow: inset 10px 0 15px rgba(0,0,0,0.5);
-}
+.curtain.left { transform-origin: left; }
+.curtain.right { transform-origin: right; }
 
-/* Animation to open curtains */
-@keyframes curtainOpen {
-  from { transform: scaleX(1); }
-  to { transform: scaleX(0); }
+@keyframes openCurtain {
+  0% { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
 }
