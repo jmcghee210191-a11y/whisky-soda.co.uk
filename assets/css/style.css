@@ -17,15 +17,16 @@ a {
 }
 
 /* ===== Navbar ===== */
+/* ===== Navbar ===== */
 header.navbar {
   display: flex;
   justify-content: flex-end;
   padding: 0.5rem 2rem;
   background: linear-gradient(
-    135deg,
-    #3b1f10 0%,   /* deep espresso brown */
-    #8a4a22 50%,  /* mid warm brown */
-    #c96f3b 100%  /* golden orange-brown */
+    90deg,
+    #3a1d12 0%,   /* dark brown left */
+    #8b4e30 50%,  /* lighter warm brown center */
+    #3a1d12 100%  /* dark brown right */
   );
   position: fixed;
   top: 0;
@@ -34,6 +35,7 @@ header.navbar {
   height: 60px;
   z-index: 1000;
 }
+
 
 /* ===== Logo overlapping navbar ===== */
 header.navbar img.logo {
