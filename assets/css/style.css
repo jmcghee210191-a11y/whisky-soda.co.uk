@@ -196,7 +196,7 @@ footer {
   color: #888;
 }
 
-/* ===== Curtains (Velvet) ===== */
+/* ===== Photorealistic Velvet Curtains ===== */
 .curtains {
   position: fixed;
   top: 0;
@@ -206,77 +206,86 @@ footer {
   display: flex;
   z-index: 2000;
   pointer-events: none;
+  perspective: 1000px; /* for subtle 3D depth */
 }
 
 .curtain {
   flex: 1;
   position: relative;
-  background: linear-gradient(120deg, #6e0000, #800000 50%, #4b0000 90%);
-  box-shadow: inset -5px 0 30px rgba(0,0,0,0.5), inset 5px 0 20px rgba(255,255,255,0.05);
+  background: linear-gradient(120deg,
+      #5a0000 0%,
+      #800000 25%,
+      #6b0000 50%,
+      #900000 75%,
+      #4b0000 100%);
+  box-shadow: inset -10px 0 40px rgba(0,0,0,0.6),
+              inset 10px 0 25px rgba(255,255,255,0.05);
   transition: transform 1.5s ease;
   overflow: hidden;
 }
 
+/* Vertical folds */
 .curtain::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: repeating-linear-gradient(
-    45deg,
-    rgba(255,255,255,0.02),
-    rgba(255,255,255,0.02) 2px,
-    rgba(0,0,0,0.03) 4px,
-    rgba(0,0,0,0.03) 6px
+    90deg,
+    rgba(0,0,0,0.05),
+    rgba(0,0,0,0.05) 4px,
+    rgba(255,255,255,0.02) 8px,
+    rgba(255,255,255,0.02) 12px
   );
   pointer-events: none;
+  mix-blend-mode: overlay;
 }
 
+/* Velvet shimmer / pile */
 .curtain::after {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(255,255,255,0.04),
-    rgba(255,255,255,0.04) 2px,
-    rgba(0,0,0,0.05) 4px,
-    rgba(0,0,0,0.05) 6px
-  );
-  opacity: 0.5;
-  animation: velvetShimmer 4s ease-in-out infinite alternate;
+  background: repeating-radial-gradient(
+      circle at 20% 30%, rgba(255,255,255,0.02), transparent 3px
+    ),
+    repeating-radial-gradient(
+      circle at 70% 70%, rgba(255,255,255,0.01), transparent 3px
+    );
+  opacity: 0.3;
+  animation: velvetShimmer 5s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
-/* Additional “pile” texture for realistic plush velvet */
+/* Additional pile texture for subtle plush effect */
 .curtain-texture {
-  background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.03) 1px, transparent 2px),
-                    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.02) 1px, transparent 2px);
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.02) 1px, transparent 2px),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.015) 1px, transparent 2px);
   background-size: 20px 20px;
-  opacity: 0.2;
+  opacity: 0.25;
   pointer-events: none;
 }
 
+/* Shimmer animation */
 @keyframes velvetShimmer {
-  0% { background-position: 0 0; }
-  25% { background-position: 10px 5px; }
-  50% { background-position: 20px 0; }
-  75% { background-position: 10px -5px; }
-  100% { background-position: 0 0; }
+  0% { background-position: 0 0, 0 0; }
+  25% { background-position: 10px 5px, -5px 10px; }
+  50% { background-position: 20px 0, 10px -5px; }
+  75% { background-position: 10px -5px, -10px 5px; }
+  100% { background-position: 0 0, 0 0; }
 }
 
-.curtains.hidden .left { transform: translateX(-100%); }
-.curtains.hidden .right { transform: translateX(100%); }
+/* Curtain open/close animations */
+.curtains.hidden .left { transform: translateX(-100%) rotateY(-2deg); }
+.curtains.hidden .right { transform: translateX(100%) rotateY(2deg); }
 
-/* ===== Responsive ===== */
+/* Responsive tweaks for smaller screens */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  .hero-content p {
-    font-size: 1rem;
-  }
-  nav.nav-links {
+  .curtains {
     flex-direction: column;
-    gap: 1rem;
   }
+  .curtains.hidden .left { transform: translateY(-100%) rotateX(-2deg); }
+  .curtains.hidden .right { transform: translateY(100%) rotateX(2deg); }
 }
