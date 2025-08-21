@@ -62,15 +62,20 @@
     <p>&copy; 2025 Whisky Soda Ltd. All rights reserved.</p>
   </footer>
 
-  <!-- ===== JS ===== -->
-  <script>
+ <!-- ===== JS ===== -->
+<script>
+  window.addEventListener('load', () => {
     const curtains = document.getElementById('curtains');
+
+    // Wait a moment, then slide curtains open
     setTimeout(() => {
       curtains.classList.add('hidden');
+
+      // Remove curtains from DOM after the transition ends
       curtains.addEventListener('transitionend', () => {
         curtains.remove();
       });
-    }, 1000);
-  </script>
-</body>
-</html>
+    }, 500); // 0.5s delay for cinematic effect
+  });
+</script>
+
