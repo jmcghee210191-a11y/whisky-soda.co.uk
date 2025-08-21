@@ -19,49 +19,47 @@ a {
 /* ===== Navbar ===== */
 header.navbar {
   display: flex;
-  align-items: center;
-  justify-content: flex-end; /* nav goes to the right */
-  padding: 0.5rem 2rem; /* shorter navbar */
+  justify-content: flex-end; /* nav links on the right */
+  padding: 0.5rem 2rem;      /* short navbar */
   background: #f0c040;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px; 
+  height: 60px;
   z-index: 1000;
 }
 
-/* Logo overlapping navbar */
+/* ===== Logo overlapping navbar ===== */
 header.navbar img.logo {
   position: absolute;
-  top: 9;
-  left: 0;
-  height: 120px; /* bigger logo */
-  transform: translateY(0px); /* make it protrude beneath navbar */
-  z-index: 1001; /* above navbar background */
+  top: 10px;        /* keeps top visible */
+  left: 20px;       /* space from left edge */
+  height: 120px;    /* bigger logo */
+  z-index: 1001;    /* above navbar */
+  object-fit: contain;
 }
 
+/* ===== Nav Links ===== */
 nav.nav-links {
   display: flex;
   gap: 2rem;
   font-weight: 700;
-}
-
-nav.nav-links a:hover {
-  color: #000;
+  align-items: center;
+  height: 100%;
 }
 
 /* ===== Hero Section ===== */
 .hero {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 70vh;          /* taller for visual balance */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  margin-top: 80px;
+  margin-top: 60px;      /* same as navbar height */
 }
 
 .hero img {
