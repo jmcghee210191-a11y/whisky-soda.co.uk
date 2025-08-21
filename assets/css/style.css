@@ -56,9 +56,9 @@ nav.nav-links {
 
 /* ===== Hamburger Button ===== */
 .hamburger {
+  display: none; /* hide by default */
   width: 30px;
   height: 24px;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: transparent;
@@ -74,6 +74,28 @@ nav.nav-links {
   width: 100%;
   background-color: #fff; /* color of the bars */
   border-radius: 2px;
+}
+
+/* Show hamburger only on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav.nav-links {
+    display: none; /* hide nav links on mobile by default */
+  }
+
+  nav.nav-links.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* below navbar */
+    right: 2rem;
+    background: rgba(0,0,0,0.9);
+    padding: 1rem;
+    border-radius: 8px;
+  }
 }
 
 /* ===== Hero Section ===== */
