@@ -27,17 +27,17 @@ header.navbar {
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px; /* make it short */
+  height: 100px; 
   z-index: 1000;
 }
 
 /* Logo overlapping navbar */
 header.navbar img.logo {
   position: absolute;
-  top: 0;
+  top: 9;
   left: 0;
   height: 120px; /* bigger logo */
-  transform: translateY(-40px); /* make it protrude beneath navbar */
+  transform: translateY(0px); /* make it protrude beneath navbar */
   z-index: 1001; /* above navbar background */
 }
 
