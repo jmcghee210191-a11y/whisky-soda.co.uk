@@ -17,16 +17,15 @@ a {
 }
 
 /* ===== Navbar ===== */
-/* ===== Navbar ===== */
 header.navbar {
   display: flex;
   justify-content: flex-end;
   padding: 0.5rem 2rem;
   background: linear-gradient(
     90deg,
-    #3a1d12 0%,   /* dark brown left */
-    #8b4e30 50%,  /* lighter warm brown center */
-    #3a1d12 100%  /* dark brown right */
+    #3a1d12 0%,   
+    #8b4e30 50%,  
+    #3a1d12 100%  
   );
   position: fixed;
   top: 0;
@@ -36,14 +35,13 @@ header.navbar {
   z-index: 1000;
 }
 
-
 /* ===== Logo overlapping navbar ===== */
 header.navbar img.logo {
   position: absolute;
-  top: 10px;        /* keeps top visible */
-  left: 20px;       /* space from left edge */
-  height: 120px;    /* bigger logo */
-  z-index: 1001;    /* above navbar */
+  top: 10px;        
+  left: 20px;       
+  height: 120px;    
+  z-index: 1001;    
   object-fit: contain;
 }
 
@@ -56,7 +54,39 @@ nav.nav-links {
   height: 100%;
 }
 
+/* ===== Hamburger Button ===== */
+.hamburger {
+  width: 30px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002; /* above navbar */
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #fff; /* color of the bars */
+  border-radius: 2px;
+}
+
 /* ===== Hero Section ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
 /* ===== Hero Section ===== */
 .hero {
   position: relative;
