@@ -81,6 +81,21 @@
         curtains.remove();
       });
     }, 500); // 0.5s delay for cinematic effect
+
+    // ===== Hero slider =====
+    const slides = document.querySelectorAll('.hero-slides img');
+    let current = 0;
+
+    // Initialize first slide
+    slides[0].classList.add('active');
+
+    function nextSlide() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }
+
+    // Cycle every 5 seconds
+    setInterval(nextSlide, 5000);
   });
 </script>
-
