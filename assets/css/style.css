@@ -50,13 +50,18 @@ nav.nav-links {
 }
 
 /* ===== Hero Section ===== */
+/* ===== Hero Section ===== */
 .hero {
   position: relative;
   width: 100%;
-  height: 70vh;
+  min-height: 100vh; /* full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
+/* ===== Hero Slides (Images) ===== */
 .hero-slides {
   position: absolute;
   top: 0; left: 0;
@@ -73,20 +78,19 @@ nav.nav-links {
   object-position: top center;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  z-index: -1;
+  z-index: -1; /* behind content */
 }
 
 .hero-slides img.active {
   opacity: 1;
 }
 
+/* ===== Hero Content (Text over images) ===== */
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 1; /* above images */
   text-align: center;
   color: #fff;
-  top: 50%;
-  transform: translateY(-50%);
   max-width: 800px;
   margin: 0 auto;
   padding: 0 1rem;
@@ -102,6 +106,7 @@ nav.nav-links {
   margin-bottom: 2rem;
 }
 
+/* ===== Call-to-action Buttons ===== */
 .btn {
   display: inline-block;
   background: #f0c040;
@@ -121,37 +126,59 @@ nav.nav-links {
   font-size: 0.9rem;
 }
 
-/* ===== Info Panels ===== */
-.info-panels {
+/* ===== Info Panels Overlay (on top of hero images) ===== */
+.info-panels.overlay {
+  position: absolute;
+  bottom: 2rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 2rem;
-  padding: 3rem 1rem;
-  background: #111;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.4); /* semi-transparent */
+  border-radius: 10px;
+  z-index: 2; /* above hero images */
 }
 
-.panel {
-  background: #1a1a1a;
-  padding: 2rem;
+.info-panels.overlay .panel {
+  background: rgba(255, 255, 255, 0.05); /* subtle panel */
+  color: #fff;
+  padding: 1.5rem;
   border-radius: 10px;
   flex: 1 1 250px;
   max-width: 300px;
   text-align: center;
 }
 
-.panel h2 {
+.info-panels.overlay .panel h2 {
   margin-bottom: 1rem;
 }
 
-.panel ul {
+.info-panels.overlay .panel ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.panel ul li {
+.info-panels.overlay .panel ul li {
   margin-bottom: 0.5rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .info-panels.overlay {
+    flex-direction: column;
+    bottom: 1rem;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+  }
 }
 
 /* ===== Footer ===== */
