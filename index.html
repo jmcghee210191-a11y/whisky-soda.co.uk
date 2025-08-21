@@ -60,15 +60,22 @@
   </div>
 
   <!-- ===== Navbar ===== -->
-  <header class="navbar">
-    <img src="assets/Whisky-Soda _Logo.png" alt="Whisky-Soda Logo" class="logo">
-    <nav class="nav-links" role="navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="events.html" aria-current="page">Events</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+ <header class="navbar">
+  <img src="assets/Whisky-Soda _Logo.png" alt="Whisky-Soda Logo" class="logo">
+  
+  <!-- Hamburger button for mobile -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+    &#9776; <!-- simple hamburger icon -->
+  </button>
+
+  <nav class="nav-links" id="nav-links" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html" aria-current="page">Events</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
 
 <!-- ===== Hero Section ===== -->
 <section class="hero">
@@ -182,37 +189,45 @@
     <p>&copy; 2025 Whisky Soda Ltd. All rights reserved.</p>
   </footer>
 
-  <!-- ===== JS ===== -->
-  <script>
-    window.addEventListener('load', () => {
-      const curtains = document.getElementById('curtains');
+<!-- ===== JS ===== -->
+<script>
+  // ===== Hamburger Toggle =====
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
 
-      // Wait a moment, then slide curtains open
-      setTimeout(() => {
-        curtains.classList.add('hidden');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
 
-        // Remove curtains from DOM after the transition ends
-        curtains.addEventListener('transitionend', () => {
-          curtains.remove();
-        });
-      }, 500); // 0.5s delay for cinematic effect
+  // ===== Curtains Animation & Hero Slider =====
+  window.addEventListener('load', () => {
+    // Curtains
+    const curtains = document.getElementById('curtains');
+    setTimeout(() => {
+      curtains.classList.add('hidden');
+      curtains.addEventListener('transitionend', () => {
+        curtains.remove();
+      });
+    }, 500); // cinematic delay
 
-      // ===== Hero slider =====
-      const slides = document.querySelectorAll('.hero-slides img');
-      let current = 0;
+    // Hero slider
+    const slides = document.querySelectorAll('.hero-slides img');
+    let currentSlide = 0;
 
-      // Initialize first slide
+    // Initialize first slide
+    if (slides.length > 0) {
       slides[0].classList.add('active');
+    }
 
-      function nextSlide() {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
-      }
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
 
-      // Cycle every 5 seconds
+    // Cycle slides every 5 seconds
+    if (slides.length > 1) {
       setInterval(nextSlide, 5000);
-    });
-  </script>
-</body>
-</html>
+    }
+  });
+</script>
