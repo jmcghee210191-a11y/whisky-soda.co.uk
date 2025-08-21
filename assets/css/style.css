@@ -63,12 +63,13 @@ nav.nav-links {
 }
 
 .hero img {
-  position: absolute;
+  position: absolute;       /* makes it sit behind content */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;        /* fills container, may crop */
+  object-position: top center;  /* show top of image */
   z-index: -1;
 }
 
