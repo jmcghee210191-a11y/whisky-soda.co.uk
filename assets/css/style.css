@@ -19,9 +19,14 @@ a {
 /* ===== Navbar ===== */
 header.navbar {
   display: flex;
-  justify-content: flex-end; /* nav links on the right */
-  padding: 0.5rem 2rem;      /* short navbar */
-  background: #734424;
+  justify-content: flex-end;
+  padding: 0.5rem 2rem;
+  background: linear-gradient(
+    135deg,
+    #3b1f10 0%,   /* deep espresso brown */
+    #8a4a22 50%,  /* mid warm brown */
+    #c96f3b 100%  /* golden orange-brown */
+  );
   position: fixed;
   top: 0;
   left: 0;
