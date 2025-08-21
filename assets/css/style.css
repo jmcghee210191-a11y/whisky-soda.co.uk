@@ -1,4 +1,4 @@
-/* ===== Reset & Base Styles ===== */
+/* ===== Reset & Body ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,12 +17,17 @@ a {
 }
 
 /* ===== Navbar ===== */
+/* ===== Navbar ===== */
 header.navbar {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   padding: 0.5rem 2rem;
-  background: linear-gradient(90deg, #3a1d12 0%, #8b4e30 50%, #3a1d12 100%);
+  background: linear-gradient(
+    90deg,
+    #3a1d12 0%,   /* dark brown left */
+    #8b4e30 50%,  /* lighter warm brown center */
+    #3a1d12 100%  /* dark brown right */
+  );
   position: fixed;
   top: 0;
   left: 0;
@@ -31,15 +36,18 @@ header.navbar {
   z-index: 1000;
 }
 
+
+/* ===== Logo overlapping navbar ===== */
 header.navbar img.logo {
   position: absolute;
-  top: 10px;
-  left: 20px;
-  height: 120px;
+  top: 10px;        /* keeps top visible */
+  left: 20px;       /* space from left edge */
+  height: 120px;    /* bigger logo */
+  z-index: 1001;    /* above navbar */
   object-fit: contain;
-  z-index: 1001;
 }
 
+/* ===== Nav Links ===== */
 nav.nav-links {
   display: flex;
   gap: 2rem;
@@ -49,49 +57,50 @@ nav.nav-links {
 }
 
 /* ===== Hero Section ===== */
+/* ===== Hero Section ===== */
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100vh; /* full viewport height */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-/* ===== Hero Slides ===== */
+/* ===== Hero Slides (Images) ===== */
 .hero-slides {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
 }
 
 .hero-slides img {
   position: absolute;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  z-index: -1;
+  z-index: -1; /* behind content */
 }
 
 .hero-slides img.active {
   opacity: 1;
 }
 
-/* ===== Hero Content ===== */
+/* ===== Hero Content (Text over images) ===== */
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 1; /* above images */
   text-align: center;
+  color: #fff;
   max-width: 800px;
+  margin: 0 auto;
   padding: 0 1rem;
-  opacity: 0;
-  transition: opacity 1.5s ease;
 }
 
 .hero-content h1 {
@@ -104,7 +113,7 @@ nav.nav-links {
   margin-bottom: 2rem;
 }
 
-/* ===== Buttons ===== */
+/* ===== Call-to-action Buttons ===== */
 .btn {
   display: inline-block;
   background: #f0c040;
@@ -124,23 +133,23 @@ nav.nav-links {
   font-size: 0.9rem;
 }
 
-/* ===== Info Panels Overlay ===== */
+/* ===== Info Panels Overlay (on top of hero images) ===== */
 .info-panels.overlay {
   position: absolute;
   bottom: 2rem;
   display: flex;
-  justify-content: center;
   gap: 2rem;
+  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
   padding: 1rem 2rem;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4); /* semi-transparent */
   border-radius: 10px;
-  z-index: 2;
+  z-index: 2; /* above hero images */
 }
 
 .info-panels.overlay .panel {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05); /* subtle panel */
   color: #fff;
   padding: 1.5rem;
   border-radius: 10px;
@@ -155,10 +164,28 @@ nav.nav-links {
 
 .info-panels.overlay .panel ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .info-panels.overlay .panel ul li {
   margin-bottom: 0.5rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .info-panels.overlay {
+    flex-direction: column;
+    bottom: 1rem;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+  }
 }
 
 /* ===== Footer ===== */
@@ -185,53 +212,49 @@ footer {
   flex: 1;
   position: relative;
   background: linear-gradient(120deg, #6e0000, #800000 50%, #4b0000 90%);
-  box-shadow: inset -5px 0 30px rgba(0,0,0,0.5),
-              inset 5px 0 20px rgba(255,255,255,0.05);
-  transform: translateX(0);
-  transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  box-shadow: inset -5px 0 30px rgba(0,0,0,0.5), inset 5px 0 20px rgba(255,255,255,0.05);
+  transition: transform 1.5s ease;
   overflow: hidden;
-}
-
-.curtain::before,
-.curtain::after,
-.curtain-texture {
-  pointer-events: none;
 }
 
 .curtain::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: repeating-linear-gradient(
     45deg,
-    rgba(255,255,255,0.02) 0 2px,
-    rgba(0,0,0,0.03) 2px 6px
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 2px,
+    rgba(0,0,0,0.03) 4px,
+    rgba(0,0,0,0.03) 6px
   );
+  pointer-events: none;
 }
 
 .curtain::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: repeating-linear-gradient(
     0deg,
-    rgba(255,255,255,0.04) 0 2px,
-    rgba(0,0,0,0.05) 2px 6px
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.04) 2px,
+    rgba(0,0,0,0.05) 4px,
+    rgba(0,0,0,0.05) 6px
   );
   opacity: 0.5;
   animation: velvetShimmer 4s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
+/* Additional “pile” texture for realistic plush velvet */
 .curtain-texture {
   background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.03) 1px, transparent 2px),
                     radial-gradient(circle at 80% 80%, rgba(255,255,255,0.02) 1px, transparent 2px);
   background-size: 20px 20px;
   opacity: 0.2;
+  pointer-events: none;
 }
-
-/* Curtain Open States */
-.curtains.open .left { transform: translateX(-100%); }
-.curtains.open .right { transform: translateX(100%); }
 
 @keyframes velvetShimmer {
   0% { background-position: 0 0; }
@@ -241,18 +264,19 @@ footer {
   100% { background-position: 0 0; }
 }
 
+.curtains.hidden .left { transform: translateX(-100%); }
+.curtains.hidden .right { transform: translateX(100%); }
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .hero-content h1 { font-size: 2rem; }
-  .hero-content p { font-size: 1rem; }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
   nav.nav-links {
     flex-direction: column;
     gap: 1rem;
-  }
-  .info-panels.overlay {
-    flex-direction: column;
-    bottom: 1rem;
-    gap: 1rem;
-    padding: 0.5rem 1rem;
   }
 }
