@@ -21,7 +21,7 @@ header.navbar {
   display: flex;
   justify-content: flex-end; /* nav links on the right */
   padding: 0.5rem 2rem;      /* short navbar */
-  background: #f0c040;
+  background: #CF7F1D;
   position: fixed;
   top: 0;
   left: 0;
