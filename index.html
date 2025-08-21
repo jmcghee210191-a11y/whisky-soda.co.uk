@@ -6,6 +6,7 @@
   <title>Whisky-Soda Events</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     /* ===== Hero Info Section ===== */
     .hero-info {
@@ -15,27 +16,10 @@
       max-width: 1000px;
       margin: 0 auto;
     }
-
-    .hero-info h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-info p,
-    .hero-info ul {
-      font-size: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero-info ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-    }
-
-    .hero-info ul li {
-      margin-bottom: 0.5rem;
-    }
-
+    .hero-info h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .hero-info p, .hero-info ul { font-size: 1rem; margin-bottom: 2rem; }
+    .hero-info ul { list-style: disc; padding-left: 1.5rem; }
+    .hero-info ul li { margin-bottom: 0.5rem; }
     .hero-info .btn {
       display: inline-block;
       background: #fff;
@@ -46,17 +30,146 @@
       font-weight: bold;
       transition: background 0.3s;
     }
+    .hero-info .btn:hover { background: #f0f0f0; }
 
-    .hero-info .btn:hover {
-      background: #f0f0f0;
+    /* ===== Photorealistic Velvet Curtains ===== */
+    .curtains {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      z-index: 2000;
+      pointer-events: none;
+      perspective: 1000px;
     }
+
+    .curtain {
+      flex: 1;
+      position: relative;
+      background: linear-gradient(120deg,
+          #5a0000 0%,
+          #800000 25%,
+          #6b0000 50%,
+          #900000 75%,
+          #4b0000 100%);
+      box-shadow: inset -10px 0 40px rgba(0,0,0,0.6),
+                  inset 10px 0 25px rgba(255,255,255,0.05);
+      transition: transform 1.5s ease;
+      overflow: hidden;
+    }
+
+    /* Vertical folds */
+    .curtain::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(0,0,0,0.05),
+        rgba(0,0,0,0.05) 4px,
+        rgba(255,255,255,0.02) 8px,
+        rgba(255,255,255,0.02) 12px
+      );
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+
+    /* Velvet shimmer / pile */
+    .curtain::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-radial-gradient(
+          circle at 20% 30%, rgba(255,255,255,0.02), transparent 3px
+        ),
+        repeating-radial-gradient(
+          circle at 70% 70%, rgba(255,255,255,0.01), transparent 3px
+        );
+      opacity: 0.3;
+      animation: velvetShimmer 5s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    /* Additional pile texture for subtle plush effect */
+    .curtain-texture {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.02) 1px, transparent 2px),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.015) 1px, transparent 2px);
+      background-size: 20px 20px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    @keyframes velvetShimmer {
+      0% { background-position: 0 0, 0 0; }
+      25% { background-position: 10px 5px, -5px 10px; }
+      50% { background-position: 20px 0, 10px -5px; }
+      75% { background-position: 10px -5px, -10px 5px; }
+      100% { background-position: 0 0, 0 0; }
+    }
+
+    /* Curtain open/close animations */
+    .curtains.hidden .left { transform: translateX(-100%) rotateY(-2deg); }
+    .curtains.hidden .right { transform: translateX(100%) rotateY(2deg); }
+
+    @media (max-width: 768px) {
+      .curtains { flex-direction: column; }
+      .curtains.hidden .left { transform: translateY(-100%) rotateX(-2deg); }
+      .curtains.hidden .right { transform: translateY(100%) rotateX(2deg); }
+    }
+
+    /* ===== Hero Section & Text Flow ===== */
+    .hero-content { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
+    .hero-background {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('assets/pistachiosour.jpg') center/cover no-repeat;
+      filter: blur(15px) brightness(0.5);
+      z-index: -1;
+    }
+    .hero-text-block {
+      margin: 10rem 0;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 15px rgba(0,0,0,0.7);
+    }
+    .hero-text-block h1 { font-size: 4rem; }
+    .hero-text-block h2 { font-size: 2.5rem; }
+    .hero-text-block p, .hero-text-block ul { font-size: 1.5rem; line-height: 1.6; }
+    .hero-text-block ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      display: inline-block;
+      text-align: left;
+    }
+    .btn {
+      display: inline-block;
+      background: #fff;
+      color: #111;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 0.25rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: #f0f0f0; }
   </style>
 </head>
+
 <body>
   <!-- ===== Curtains ===== -->
   <div class="curtains" id="curtains">
-    <div class="curtain left"></div>
-    <div class="curtain right"></div>
+    <div class="curtain left">
+      <div class="curtain-texture"></div>
+    </div>
+    <div class="curtain right">
+      <div class="curtain-texture"></div>
+    </div>
   </div>
 
   <!-- ===== Navbar ===== -->
@@ -70,112 +183,45 @@
     </nav>
   </header>
 
-<!-- ===== Hero Section ===== -->
-<section class="hero">
-  <div class="hero-slides">
-    <img src="assets/pistachiosour.jpg" alt="Pistachio Sour">
-    <img src="assets/Apple Strudel Cocktail.png" alt="Apple Strudel Cocktail">
-    <img src="assets/The Red Pill Spherification.png" alt="The Red Pill Spherification">
-    <img src="assets/Run Forrest Tea.png" alt="Run Forrest Tea">
-  </div>
-</section>
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <div class="hero-slides">
+      <img src="assets/pistachiosour.jpg" alt="Pistachio Sour">
+      <img src="assets/Apple Strudel Cocktail.png" alt="Apple Strudel Cocktail">
+      <img src="assets/The Red Pill Spherification.png" alt="The Red Pill Spherification">
+      <img src="assets/Run Forrest Tea.png" alt="Run Forrest Tea">
+    </div>
+  </section>
 
-<!-- ===== Hero Text Flow ===== -->
-<section class="hero-content">
-  <div class="hero-background"></div>
+  <!-- ===== Hero Text Flow ===== -->
+  <section class="hero-content">
+    <div class="hero-background"></div>
 
-  <div class="hero-text-block">
-    <h1>Whiskey Soda Ltd.</h1>
-    <p>Immersive film & cocktail experiences.</p>
-  </div>
+    <div class="hero-text-block">
+      <h1>Whiskey Soda Ltd.</h1>
+      <p>Immersive film & cocktail experiences.</p>
+    </div>
 
-  <div class="hero-text-block">
-    <h2>Event Highlights</h2>
-    <p>Experience carefully paired tasting menus, crafted to enhance each film scene.</p>
-  </div>
+    <div class="hero-text-block">
+      <h2>Event Highlights</h2>
+      <p>Experience carefully paired tasting menus, crafted to enhance each film scene.</p>
+    </div>
 
-  <div class="hero-text-block">
-    <h2>Dates & Venues</h2>
-    <ul>
-      <li>September 2025 – The Grand Budapest Hotel</li>
-      <li>October 2025 – Halloween Specials</li>
-      <li>December 2025 – Christmas Screenings</li>
-    </ul>
-  </div>
+    <div class="hero-text-block">
+      <h2>Dates & Venues</h2>
+      <ul>
+        <li>September 2025 – The Grand Budapest Hotel</li>
+        <li>October 2025 – Halloween Specials</li>
+        <li>December 2025 – Christmas Screenings</li>
+      </ul>
+    </div>
 
-  <div class="hero-text-block">
-    <h2>Tickets</h2>
-    <p>Book your tickets early for an unforgettable cinematic cocktail experience.</p>
-    <a href="contact.html" class="btn">Reserve Now</a>
-  </div>
-</section>
-
-<style>
-/* Background for hero text */
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-}
-
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('assets/pistachiosour.jpg') center/cover no-repeat;
-  filter: blur(15px) brightness(0.5); /* subtle, cinematic effect */
-  z-index: -1;
-}
-
-.hero-text-block {
-  margin: 10rem 0; /* dramatic spacing */
-  text-align: center;
-  color: #fff;
-  text-shadow: 0 0 15px rgba(0,0,0,0.7); /* readability */
-}
-
-.hero-text-block h1 {
-  font-size: 4rem;
-}
-
-.hero-text-block h2 {
-  font-size: 2.5rem;
-}
-
-.hero-text-block p,
-.hero-text-block ul {
-  font-size: 1.5rem;
-  line-height: 1.6;
-}
-
-.hero-text-block ul {
-  list-style: disc;
-  padding-left: 1.5rem;
-  display: inline-block;
-  text-align: left;
-}
-
-.btn {
-  display: inline-block;
-  background: #fff;
-  color: #111;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  border-radius: 0.25rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background: #f0f0f0;
-}
-</style>
-
+    <div class="hero-text-block">
+      <h2>Tickets</h2>
+      <p>Book your tickets early for an unforgettable cinematic cocktail experience.</p>
+      <a href="contact.html" class="btn">Reserve Now</a>
+    </div>
+  </section>
 
   <!-- ===== Footer ===== -->
   <footer>
@@ -187,32 +233,4 @@
     window.addEventListener('load', () => {
       const curtains = document.getElementById('curtains');
 
-      // Wait a moment, then slide curtains open
-      setTimeout(() => {
-        curtains.classList.add('hidden');
-
-        // Remove curtains from DOM after the transition ends
-        curtains.addEventListener('transitionend', () => {
-          curtains.remove();
-        });
-      }, 500); // 0.5s delay for cinematic effect
-
-      // ===== Hero slider =====
-      const slides = document.querySelectorAll('.hero-slides img');
-      let current = 0;
-
-      // Initialize first slide
-      slides[0].classList.add('active');
-
-      function nextSlide() {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
-      }
-
-      // Cycle every 5 seconds
-      setInterval(nextSlide, 5000);
-    });
-  </script>
-</body>
-</html>
+      // Slide curtains open after slight delay
