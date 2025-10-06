@@ -6,8 +6,9 @@
   <title>Events - Whisky Soda</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
   <style>
-    /* ===== Shared Styles ===== */
+    /* ===== Global Styles ===== */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Montserrat', sans-serif; background: #111; color: #fff; }
     a { text-decoration: none; color: inherit; }
@@ -18,7 +19,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 2rem;
-      background: linear-gradient(90deg, #2b1b00 0%, #f0c040 40%, #f0c040 60%, #2b1b00 100%);
+      background: linear-gradient(90deg, #1a1000 0%, #3b2b00 15%, #d4ac3a 50%, #3b2b00 85%, #1a1000 100%);
       position: fixed;
       top: 0;
       left: 0;
@@ -26,21 +27,45 @@
       z-index: 1000;
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
-    header.navbar img.logo { height: 55px; }
-    nav.nav-links { display: flex; gap: 2rem; font-weight: 700; }
-    nav.nav-links a:hover { color: #000; }
+    header.navbar img.logo {
+      height: 80px;
+    }
+    nav.nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-left: auto;
+      font-weight: 700;
+    }
+    nav.nav-links a:hover {
+      color: #000;
+    }
+
+    /* ===== Responsive Navbar ===== */
+    @media (max-width: 768px) {
+      header.navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav.nav-links {
+        margin-left: 0;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
 
     /* ===== Hero Section ===== */
     .hero {
       position: relative;
       width: 100%;
-      height: 60vh;
+      height: 80vh;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       text-align: center;
       overflow: hidden;
-      margin-top: 80px;
+      margin-top: 90px;
     }
     .hero img {
       position: absolute;
@@ -48,16 +73,24 @@
       width: 100%; height: 100%;
       object-fit: cover;
       z-index: -1;
-      filter: brightness(0.5);
+      filter: brightness(0.4);
     }
     .hero-content {
       color: #fff;
       max-width: 800px;
-      padding: 0 1rem;
-      backdrop-filter: blur(2px);
+      padding: 2rem;
+      text-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
-    .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
 
     /* ===== Buttons ===== */
     .btn {
@@ -73,19 +106,22 @@
       background: #ffe07a;
       transform: scale(1.05);
     }
-    .btn.small { padding: 0.5rem 1rem; font-size: 0.9rem; }
+    .btn.small {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
 
     /* ===== Events Grid ===== */
     .events-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      padding: 4rem 1rem;
+      padding: 5rem 2rem;
       background: #111;
     }
     .event-card {
       background: #1a1a1a;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -103,7 +139,11 @@
       font-size: 1.4rem;
       color: #f0c040;
     }
-    .event-card p { font-size: 0.95rem; margin-bottom: 1rem; color: #ddd; }
+    .event-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: #ddd;
+    }
     .event-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.5);
@@ -165,15 +205,9 @@
     .curtains.hidden { opacity: 0; pointer-events: none; }
     .curtains.hidden .left { transform: translateX(-110%); }
     .curtains.hidden .right { transform: translateX(110%); }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: 2rem; }
-      .hero-content p { font-size: 1rem; }
-      nav.nav-links { flex-direction: column; gap: 1rem; }
-    }
   </style>
 </head>
+
 <body>
   <!-- Curtains -->
   <div class="curtains" id="curtains">
@@ -183,7 +217,7 @@
 
   <!-- Navbar -->
   <header class="navbar">
-    <img src="assets/Whisky-Soda _Logo.png" alt="Whisky-Soda Logo" class="logo" />
+    <img src="assets/Whisky-Soda _Logo.png" alt="Whisky Soda Logo" class="logo" />
     <nav class="nav-links" role="navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
@@ -197,7 +231,7 @@
     <img src="assets/events-hero.jpg" alt="Whisky Soda Events" />
     <div class="hero-content">
       <h1>Upcoming Events</h1>
-      <p>Explore our curated cinematic experiences paired with immersive cocktail menus. Each event is designed for full sensory enjoyment.</p>
+      <p>Explore our curated cinematic experiences paired with immersive cocktail menus — every film, every flavour, perfectly in sync.</p>
       <a href="#events" class="btn">View All Events</a>
     </div>
   </section>
@@ -261,6 +295,7 @@
     <p>&copy; 2025 Whisky Soda Ltd. All rights reserved.</p>
   </footer>
 
+  <!-- Curtains Animation -->
   <script>
     const curtains = document.getElementById('curtains');
     setTimeout(() => { curtains.classList.add('hidden'); }, 1000);
